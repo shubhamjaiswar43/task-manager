@@ -86,7 +86,7 @@ const Dashboard: React.FC = () => {
                 let pendingTaskPercent = csData.totalTasks === 0 ? 0 : (cptsData.pendingTasks / csData.totalTasks) * 100;
                 csData.tasksPending = `${formatNumber(pendingTaskPercent)} %`;
                 csData.tasksCompleted = `${formatNumber(100 - pendingTaskPercent)} %`;
-                csData.avgTimeToComplete = `${formatNumber(totalTimeToFinish / (csData.totalTasks - cptsData.pendingTasks))} hrs`;
+                csData.avgTimeToComplete = csData.totalTasks === 0 ? '0 hrs' : `${formatNumber(totalTimeToFinish / (csData.totalTasks - cptsData.pendingTasks))} hrs`;
                 setPTSData(cptsData);
                 setSData(csData);
                 setPTTData(cpptData);
